@@ -1,0 +1,52 @@
+{
+  "name": "begin-app",
+  "version": "0.0.0",
+  "description": "Begin basic CRUD app",
+  "arc": {
+    "app": "crud-app",
+    "http": [
+      {
+        "/todos": {
+          "method": "post",
+          "src": "/todos/create"
+        }
+      },
+      {
+        "/todos": {
+          "method": "get",
+          "src": "/todos/read"
+        }
+      },
+      {
+        "/todos/delete": {
+          "method": "post",
+          "src": "/todos/delete"
+        }
+      },
+      {
+        "/todos/:id": {
+          "method": "post",
+          "src": "/todos/update"
+        }
+      }
+    ],
+    "tables": [
+      {
+        "data": {
+          "scopeID": "*String",
+          "dataID": "**String",
+          "ttl": "TTL"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "start": "npx sandbox"
+  },
+  "dependencies": {
+    "@architect/functions": "^3.13.9",
+    "@architect/sandbox": "^3.4.0",
+    "@begin/data": "^2.0.1",
+    "tiny-json-http": "^7.3.0"
+  }
+}
